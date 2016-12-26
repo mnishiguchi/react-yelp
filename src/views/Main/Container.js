@@ -1,22 +1,28 @@
 // MainView displays our main map and the listing of restaurants.
 import React from 'react'
+import Map, {GoogleApiWrapper} from 'google-maps-react'
 
-let stars = []
-for (let i = 0; i < 10; ++i) {
-  stars.push(<i className="fa fa-star" key={i}></i>)
-}
+import Stars from '../../components/Stars'
+
+import './Container.css'
 
 const Container = () => {
   return (
-    <div className="Container">
-      <div className="App-header">
+    <div className="MainContainer">
+      <header>
         <h2>Welcome to React</h2>
-      </div>
-      <p className="App-intro">
-        {stars}
-      </p>
+      </header>
+
+      <Stars n={20} />
     </div>
   )
 }
 
-export default Container
+const googleApiConfig = {
+  apiKey: process.env.REACT_APP_GOOGLE_API_KEY
+}
+
+// GoogleApiWrapper() is a higher-order component that gives us access to the
+// lazily-loaded google api and pass through a google prop which references
+// the object loaded by the google script.
+export default GoogleApiWrapper(googleApiConfig)(Container)

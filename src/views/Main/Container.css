@@ -1,0 +1,10 @@
+.MainContainer {
+  text-align: center;
+}
+
+.MainContainer header {
+  background-color: #222;
+  height: 70px;
+  padding: 20px;
+  color: white;
+}
