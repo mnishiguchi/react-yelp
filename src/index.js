@@ -1,9 +1,9 @@
-import React from 'react';
+import React    from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+
+import App      from './App';
+
 import './index.css';
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
+const mountNode = document.querySelector('#root');
+ReactDOM.render(<App />, mountNode);
