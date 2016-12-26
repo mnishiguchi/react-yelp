@@ -1,12 +1,14 @@
-import React                     from 'react'
-import {Router, Route, Redirect} from 'react-router'
+import React              from 'react'
+import {Router, Redirect} from 'react-router'
 
 // Components
-import Home from './containers/Home'
+import configureMainRoutes from './views/Main/routes'
+
+const main = configureMainRoutes()
 
 const configureRoutes = () => (
   <Router>
-    <Route path="/" component={Home} />
+    {main}
     <Redirect from="*" to="/" />
   </Router>
 )
