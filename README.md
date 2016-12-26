@@ -4,10 +4,12 @@ In this repo, I will learn to build a Yelp-like UI using React. I will follow th
 tutorial [React Tutorial: Cloning Yelp](https://www.fullstackreact.com/articles/react-tutorial-cloning-yelp/) by
 fullstackreact.com, but try to be playful and do my own exploration.
 
+## Some resources or libraries I used
 - [fullstackreact/react-yelp-clone](https://github.com/fullstackreact/react-yelp-clone)
 - [fullstackreact/google-maps-react](https://github.com/fullstackreact/google-maps-react)
 - [Google Maps APIs Tutorials](https://developers.google.com/maps/documentation/javascript/)
-
+- [facebookincubator/create-react-app](https://github.com/facebookincubator/create-react-app)
+- And much much more
 
 ## Some techniques I learned
 
@@ -16,3 +18,4 @@ fullstackreact.com, but try to be playful and do my own exploration.
 - Adding custom environment variables using dotenv
   + [dotenv](https://www.npmjs.com/package/dotenv)
   + [https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-custom-environment-variables](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-custom-environment-variables)
+- And much much more
