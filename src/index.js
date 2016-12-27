@@ -12,7 +12,9 @@ import configureRoutes  from './routes'
 // Components
 import App  from './containers/App'
 
-// Styles
+// Global styles
+import 'bootstrap/dist/css/bootstrap.css'
+import 'font-awesome/css/font-awesome.css'
 import './index.css'
 
 const routes    = configureRoutes()

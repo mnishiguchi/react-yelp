@@ -8,20 +8,76 @@ import Stars from '../../components/Stars'
 // Styles
 import './Container.css'
 
-const Container = ({google}) => {
-  return (
-    <div className="MainContainer">
-      <header>
-        <h2>Welcome to React</h2>
-      </header>
+// Utils
+import {searchNearby} from '../../utils/googleApiHelpers'
 
-      <Stars n={20} />
+class Container extends React.Component {
+  constructor(props) {
+    super(props)
 
-      <Map
-        google={google}
-      />
-    </div>
-  )
+    this.state = {
+      places    : [],
+      pagination: null
+    }
+  }
+
+  render() {
+    const {google} = this.props
+    const {places} = this.state
+
+    return (
+      <div className="MainContainer">
+        <header>
+          <h2>Melp</h2>
+          <Stars n={20} />
+        </header>
+
+        <Map
+          google={google}
+          onReady={this._onReady.bind(this)}
+          visible={false}
+        >
+          <ul className="list-group">
+            {
+              places.map(place => {
+                return (
+                  <li
+                    key={place.id}
+                    className="list-group-item"
+                  >
+                    {place.name}
+                  </li>
+                )
+              })
+            }
+          </ul>
+        </Map>
+      </div>
+    )
+  }
+
+  /**
+   * Invoked when the map is ready and mounted.
+   */
+  _onReady(mapProps, map) {
+    const {google} = this.props
+    const opts = {
+      location: map.center,
+      radius  : '500',
+      types   : ['cafe']
+    }
+
+    searchNearby(google, map, opts)
+      .then((result, pagination) => {
+        this.setState({
+          places: result,
+          pagination
+        })
+      }).catch((reason, status) => {
+        console.log(reason)
+      })
+  }
+
 }
 
 const googleApiConfig = {
