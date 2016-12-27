@@ -1,3 +1,4 @@
+// https://www.fullstackreact.com/articles/react-tutorial-cloning-yelp/#getting-a-list-of-places
 export function searchNearby(google, map, request) {
   return new Promise((resolve, reject) => {
     const service = new google.maps.places.PlacesService(map)

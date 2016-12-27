@@ -1,0 +1,33 @@
+.Header {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  background: rgba(72, 101, 233, 0.8);
+  width: 100%;
+  padding: 0 25px;
+  height: 80px;
+  line-height: 80px;
+  color: #fff;
+}
+.Header a {
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 1px;
+  line-height: 40px;
+  color: white;
+}
+.Header a:active,
+.Header a:hover {
+  color: white;
+  text-decoration: none;
+}
+.Header a h1 {
+  margin: 1.5rem 0;
+  font-size: 28px;
+}
+.Header section {
+  position: absolute;
+  top: 0px;
+  right: 25px;
+}
