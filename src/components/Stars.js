@@ -7,9 +7,9 @@ const Stars = ({n}) => {
   }
 
   return (
-    <span className="Stars">
+    <div className="Stars">
       {stars}
-    </span>
+    </div>
   )
 }
 

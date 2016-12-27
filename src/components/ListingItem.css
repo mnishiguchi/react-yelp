@@ -1,0 +1,24 @@
+.ListingItem {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #eeeeee;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.ListingItem:last-child {
+  border-bottom: none;
+}
+
+.ListingItem h4 {
+  flex: 2;
+}
+
+.ListingItem h4:hover {
+  color: rgb(72, 101, 233);
+}
+
+.ListingItem .rating-wrapper {
+  float: right;
+  flex: 1;
+}

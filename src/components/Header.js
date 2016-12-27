@@ -1,6 +1,5 @@
 import React  from 'react'
 import {Link} from 'react-router'
-import Stars from './Stars'
 
 import './Header.css'
 

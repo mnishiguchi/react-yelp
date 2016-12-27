@@ -3,7 +3,8 @@ import React from 'react'
 import Map, {GoogleApiWrapper} from 'google-maps-react'
 
 // Components
-import Header from '../../components/Header'
+import Header  from '../../components/Header'
+import Sidebar from '../../components/Sidebar'
 
 // Styles
 import './Container.css'
@@ -33,22 +34,16 @@ class Container extends React.Component {
           visible={false}
           className="wrapper"
         >
+
           <Header/>
+
+          <Sidebar
+            title={'Restaurants'}
+            places={places}
+          />
+
           <div className="content">
-            <ul className="list-group">
-              {
-                places.map(place => {
-                  return (
-                    <li
-                      key={place.id}
-                      className="list-group-item"
-                    >
-                      {place.name}
-                    </li>
-                  )
-                })
-              }
-            </ul>
+
           </div>
         </Map>
       </div>
