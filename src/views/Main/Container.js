@@ -2,15 +2,15 @@
 import React from 'react'
 import Map, {GoogleApiWrapper} from 'google-maps-react'
 
+// Utils
+import {searchNearby} from '../../utils/googleApiHelpers'
+
 // Components
 import Header  from '../../components/Header'
 import Sidebar from '../../components/Sidebar'
 
 // Styles
 import './Container.css'
-
-// Utils
-import {searchNearby} from '../../utils/googleApiHelpers'
 
 class Container extends React.Component {
   constructor(props) {
@@ -23,13 +23,22 @@ class Container extends React.Component {
   }
 
   render() {
-    const {google} = this.props
-    const {places} = this.state
+    let children = null
+    if (this.props.children) {
+      children = React.cloneElement(
+        this.props.children,
+        {
+          google: this.props.google,
+          places: this.state.places,
+          loaded: this.props.loaded
+        }
+      )
+    }
 
     return (
       <div className="MainViewContainer">
         <Map
-          google={google}
+          google={this.props.google}
           onReady={this._onReady.bind(this)}
           visible={false}
           className="wrapper"
@@ -39,16 +48,30 @@ class Container extends React.Component {
 
           <Sidebar
             title={'Restaurants'}
-            places={places}
+            places={this.state.places}
+            onClickListingItem={this._onClickListingItem.bind(this)}
           />
 
           <div className="content">
-
+            {children}
           </div>
         </Map>
       </div>
     )
   }
+
+
+  // ---
+  // PRIVATE METHODS
+  // ---
+
+
+  _onClickListingItem() {
+
+    // TODO
+
+  }
+
 
   /**
    * Invoked when the map is ready and mounted.
@@ -58,7 +81,8 @@ class Container extends React.Component {
     const opts = {
       location: map.center,
       radius  : '500',
-      types   : ['cafe']
+      // https://developers.google.com/places/supported_types
+      types   : ['cafe', 'restaurant']
     }
 
     searchNearby(google, map, opts)

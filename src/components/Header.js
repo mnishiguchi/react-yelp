@@ -11,7 +11,7 @@ const Header = () => {
         <h1>Melp</h1>
       </Link>
       <section>
-        mnishiguchi.com
+        https://melp.surge.sh/
       </section>
     </div>
   )

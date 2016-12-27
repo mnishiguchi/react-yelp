@@ -4,7 +4,6 @@ import Rating from './Rating'
 
 import './ListingItem.css'
 
-// {((place.rating || 0)/ 5).toFixed(2)}
 const ListingItem = ({place}) => {
 
   return (

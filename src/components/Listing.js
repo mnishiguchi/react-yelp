@@ -4,14 +4,14 @@ import ListingItem from './ListingItem'
 
 import './Listing.css'
 
-const Listing = ({places, handleClickListingItem}) => {
+const Listing = ({places, onClickListingItem}) => {
   return (
     <ul className="Listing list-group">
       {
         places.map(place => (
           <ListingItem
             place={place}
-            onClick={handleClickListingItem}
+            onClick={onClickListingItem}
             key={place.id}
           />
         ))
