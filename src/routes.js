@@ -1,14 +1,14 @@
 import React             from 'react'
 import {Route, Redirect} from 'react-router'
 
-import configureMainRoutes from './views/main/routes'
+import configureMainRoutes from './containers/MainContainer/routes'
 
 function configureRoutes() {
-  const main = configureMainRoutes()
-  
+  const mainRoutes = configureMainRoutes()
+
   return (
     <Route>
-      {main}
+      {mainRoutes}
       <Redirect from="*" to="/" />
     </Route>
   )
