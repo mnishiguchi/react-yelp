@@ -19,4 +19,5 @@ fullstackreact.com, but try to be playful and do my own exploration.
   + [dotenv](https://www.npmjs.com/package/dotenv)
   + [https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-custom-environment-variables](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-custom-environment-variables)
 - [React - Unknown Prop Warning](https://facebook.github.io/react/warnings/unknown-prop.html)
+- [Handle events emitted by children using fbemitter](https://gist.github.com/mnishiguchi/bf700be9b964e56ddfa17c859504ebcb)
 - And much much more

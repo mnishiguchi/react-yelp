@@ -1,10 +1,9 @@
 import React  from 'react'
-import Listing from '../Listing/Listing'
+import Listing from './Listing/Listing'
 
 import './Sidebar.css'
 
-const Sidebar = ({ title, places, handleListingItemClick }) => {
-
+const Sidebar = ({ title, places, emitter }) => {
   return (
     <div className="Sidebar">
       <div className="heading">
@@ -12,7 +11,7 @@ const Sidebar = ({ title, places, handleListingItemClick }) => {
       </div>
       <Listing
         places={places}
-        handleListingItemClick={handleListingItemClick}
+        emitter={emitter}
       />
     </div>
   )

@@ -1,4 +1,10 @@
-.ListingItem {
+.Listing {
+  height: 100%;
+  overflow: auto;
+  padding-bottom: 60px;
+  margin: 0;
+}
+.Listing .Item {
   display: flex;
   flex-direction: row;
   border-bottom: 1px solid #eeeeee;
@@ -6,19 +12,19 @@
   text-decoration: none;
 }
 
-.ListingItem:last-child {
+.Listing .Item:last-child {
   border-bottom: none;
 }
 
-.ListingItem h4 {
+.Listing .Item h4 {
   flex: 2;
 }
 
-.ListingItem h4:hover {
+.Listing .Item h4:hover {
   color: rgb(72, 101, 233);
 }
 
-.ListingItem .rating-wrapper {
+.Listing .Item .rating-wrapper {
   float: right;
   flex: 1;
 }
