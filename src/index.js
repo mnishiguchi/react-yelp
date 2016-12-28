@@ -10,7 +10,7 @@ require('dotenv').load({silent: true})
 import configureRoutes  from './routes'
 
 // Components
-import App  from './containers/App'
+import Root  from './containers/Root'
 
 // Global styles
 import 'bootstrap/dist/css/bootstrap.css'
@@ -21,7 +21,7 @@ const routes    = configureRoutes()
 const mountNode = document.querySelector('#root')
 
 ReactDOM.render(
-  <App
+  <Root
     routes={routes}
     history={browserHistory}
   />,

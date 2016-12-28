@@ -1,14 +1,11 @@
-import React, { PropTypes }      from 'react'
+import React, { PropTypes as T } from 'react'
 import { Router }                from 'react-router'
 
-// // Styles
-// import './App.css'
-
-class App extends React.Component {
+class Root extends React.Component {
 
   static propTypes = {
-    routes:  PropTypes.object.isRequired,
-    history: PropTypes.object.isRequired,
+    routes:  T.object.isRequired,
+    history: T.object.isRequired,
   }
 
   get content() {
@@ -23,7 +20,7 @@ class App extends React.Component {
   render() {
     return (
       <div
-        className="App"
+        className="Root"
         style={{ height: '100%' }}
       >
         {this.content}
@@ -32,4 +29,4 @@ class App extends React.Component {
   }
 }
 
-export default App
+export default Root

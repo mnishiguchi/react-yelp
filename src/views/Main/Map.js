@@ -1,6 +1,5 @@
-import React, { PropTypes as T }       from 'react'
-import classnames                      from 'classnames'
-import Map, {GoogleApiWrapper, Marker} from 'google-maps-react'
+import React         from 'react'
+import Map, {Marker} from 'google-maps-react'
 
 class MapComponent extends React.Component {
 
@@ -10,7 +9,7 @@ class MapComponent extends React.Component {
       google,
       zoom,
       onMove,
-      onClick,
+      handleMapClick,
       children,
     } = this.props;
 
@@ -24,7 +23,7 @@ class MapComponent extends React.Component {
           zoom={zoom}
           onRecenter={onMove}
           onDragend={onMove}
-          onClick={onClick}
+          onClick={handleMapClick}
           visible={visible}
           >
             {this._renderChildren()}
@@ -41,12 +40,15 @@ class MapComponent extends React.Component {
 
   // TODO: Understand and explain this function.
   _renderChildren() {
-    if (React.Children.count(this.props.children) > 0) {
-      return React.Children.map(this.props.children, child => {
-        return React.cloneElement(child, this.props, {
-          map   : this.props.map,
-          google: this.props.google
-        })
+    const {
+      map,
+      google,
+      children,
+    } = this.props;
+
+    if (React.Children.count(children) > 0) {
+      return React.Children.map(children, (child) => {
+        return React.cloneElement(child, this.props, { map, google })
       })
     } else {
       return this._renderMarkers();

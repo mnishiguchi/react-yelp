@@ -1,11 +1,10 @@
 import React  from 'react'
 
-import Rating from './Rating'
+import Rating from '../Rating/Rating'
 
 import './ListingItem.css'
 
 const ListingItem = ({place}) => {
-
   return (
     <li
       key={place.id}

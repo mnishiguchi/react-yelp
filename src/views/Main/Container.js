@@ -1,4 +1,6 @@
-// MainView displays our main map and the listing of restaurants.
+// The Container houses our main map and the listing of search results.
+// The google map will be hidden initially then the Map component will make it
+// visible.
 import React from 'react'
 import Map, {GoogleApiWrapper} from 'google-maps-react'
 
@@ -6,8 +8,8 @@ import Map, {GoogleApiWrapper} from 'google-maps-react'
 import {searchNearby} from '../../utils/googleApiHelpers'
 
 // Components
-import Header  from '../../components/Header'
-import Sidebar from '../../components/Sidebar'
+import Header  from '../../components/Header/Header'
+import Sidebar from '../../components/Sidebar/Sidebar'
 
 // Styles
 import './Container.css'
@@ -23,17 +25,15 @@ class Container extends React.Component {
   }
 
   render() {
-    let children = null
-    if (this.props.children) {
-      children = React.cloneElement(
-        this.props.children,
-        {
-          google: this.props.google,
-          places: this.state.places,
-          loaded: this.props.loaded
-        }
-      )
-    }
+    const { google, loaded, children } = this.props
+    const { places }                   = this.state
+
+    const childrenWithProps = (children) ?
+      React.cloneElement(children, {
+        google,
+        loaded,
+        places 
+      }) : null
 
     return (
       <div className="MainViewContainer">
@@ -49,11 +49,11 @@ class Container extends React.Component {
           <Sidebar
             title={'Restaurants'}
             places={this.state.places}
-            onClickListingItem={this._onClickListingItem.bind(this)}
+            handleListingItemClick={this._handleListingItemClick.bind(this)}
           />
 
           <div className="content">
-            {children}
+            {childrenWithProps}
           </div>
         </Map>
       </div>
@@ -66,7 +66,7 @@ class Container extends React.Component {
   // ---
 
 
-  _onClickListingItem() {
+  _handleListingItemClick() {
 
     // TODO
 
@@ -86,9 +86,9 @@ class Container extends React.Component {
     }
 
     searchNearby(google, map, opts)
-      .then((result, pagination) => {
+      .then((places, pagination) => {
         this.setState({
-          places: result,
+          places,
           pagination
         })
       }).catch((reason, status) => {

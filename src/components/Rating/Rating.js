@@ -4,7 +4,6 @@ import './Rating.css'
 
 const RatingIcon = (props) => (<span>★</span>)
 
-// FIXME
 const Rating = ({percentage}) => {
 
   const style = {

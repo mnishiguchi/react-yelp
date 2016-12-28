@@ -1,9 +1,9 @@
 import React  from 'react'
-import Listing from './Listing'
+import Listing from '../Listing/Listing'
 
 import './Sidebar.css'
 
-const Sidebar = ({title, places, onClickListingItem}) => {
+const Sidebar = ({ title, places, handleListingItemClick }) => {
 
   return (
     <div className="Sidebar">
@@ -12,7 +12,7 @@ const Sidebar = ({title, places, onClickListingItem}) => {
       </div>
       <Listing
         places={places}
-        onClickListingItem={onClickListingItem}
+        handleListingItemClick={handleListingItemClick}
       />
     </div>
   )
