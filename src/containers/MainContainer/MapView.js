@@ -55,7 +55,7 @@ class MapView extends React.Component {
         key={place.id}
         place={place}
         position={place.geometry.location}
-        onClick={(e) => emitter.emit('MAP_MARKER_CLICKED', {})}
+        onClick={(e) => emitter.emit('MAP_MARKER_CLICKED', {place})}
       />
     ))
   }

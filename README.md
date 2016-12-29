@@ -21,4 +21,5 @@ fullstackreact.com, but try to be playful and do my own exploration.
 - [React - Unknown Prop Warning](https://facebook.github.io/react/warnings/unknown-prop.html)
 - [Handle events emitted by children using fbemitter](https://gist.github.com/mnishiguchi/bf700be9b964e56ddfa17c859504ebcb)
 - [Latitude and Longitude Finder by NASA](https://mynasadata.larc.nasa.gov/latitudelongitude-finder/)
+- [Accessing router context from a component](https://gist.github.com/mnishiguchi/42a39ea317ec68c9ca83aebd5c557a7e)
 - And much much more

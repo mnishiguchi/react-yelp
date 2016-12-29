@@ -5,7 +5,7 @@
 // this entire view so that we can handle all the google maps api related logic here.
 // The google-provided map will be hidden initially then our Map component will
 // make it visible.
-import React                   from 'react'
+import React, {PropTypes as T} from 'react'
 import Map, {GoogleApiWrapper} from 'google-maps-react'
 import {EventEmitter}          from 'fbemitter'
 
@@ -20,8 +20,12 @@ import Sidebar from '../../components/Sidebar/Sidebar'
 import './MainContainer.css'
 
 class MainContainer extends React.Component {
-  constructor(props) {
-    super(props)
+  static contextTypes = {
+    router: T.object
+  }
+
+  constructor(props, context) {
+    super(props, context)
 
     this.state = {
       center    : { lat: '38.9019', lng: '-77.0341' },
@@ -43,6 +47,7 @@ class MainContainer extends React.Component {
       places,
       center,
       zoom,
+      router: this.context.router,
       emitter: this._emitter,
     }
 
@@ -111,8 +116,11 @@ class MainContainer extends React.Component {
       console.log(`MAP_CLICKED`)
     })
 
-    this._emitter.addListener('MAP_MARKER_CLICKED', (payload) => {
-      console.log(`MAP_MARKER_CLICKED`)
+    this._emitter.addListener('MAP_MARKER_CLICKED', ({ place }) => {
+      console.log(`MAP_MARKER_CLICKED: ${place.id}`)
+
+      const router = this.context.router
+      router.push(`/detail/${place.id}`)
     })
   }
 
